@@ -15,4 +15,12 @@ class point
             this.position=pos;
         }
     }
+    void transform(float[] point){
+      if (point.length!=3){
+            throw new IllegalArgumentException("Invalid parameters");
+        }
+      for (int i=0; i<3;i++){
+        this.position[i]=this.position[i]+point[i];
+      }
+    }
   }
