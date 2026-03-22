@@ -8,6 +8,7 @@ public class object {
 class point {
   public float[] position = new float[3];
   public float[] _2D_position = new float[2];
+  public camera cam;
 
   point(float[] pos) {
     if (pos.length != 3) {
@@ -35,21 +36,21 @@ class point {
 
     if (ax == 0) {
       m = new float[][] {
-        {1, 0, 0},
-        {0, c, -s},
-        {0, s, c}
+          { 1, 0, 0 },
+          { 0, c, -s },
+          { 0, s, c }
       };
     } else if (ax == 1) {
       m = new float[][] {
-        {c, 0, s},
-        {0, 1, 0},
-        {-s, 0, c}
+          { c, 0, s },
+          { 0, 1, 0 },
+          { -s, 0, c }
       };
     } else if (ax == 2) {
       m = new float[][] {
-        {c, -s, 0},
-        {s, c, 0},
-        {0, 0, 1}
+          { c, -s, 0 },
+          { s, c, 0 },
+          { 0, 0, 1 }
       };
     }
 
@@ -57,5 +58,18 @@ class point {
     for (int i = 0; i < 3; i++)
       np[i] = m[i][0] * this.position[0] + m[i][1] * this.position[1] + m[i][2] * this.position[2];
     this.position = np;
+  }
+
+  void render() {
+    if (this.cam != null) {
+      float dx = this.position[0] - this.cam.position[0];
+      float dy = this.position[1] - this.cam.position[1];
+      float dz = this.position[2] - this.cam.position[2];
+
+      if (dz != 0) {
+        this._2D_position[0] = (dx * this.cam.focal_length) / dz;
+        this._2D_position[1] = (dy * this.cam.focal_length) / dz;
+      }
+    }
   }
 }
