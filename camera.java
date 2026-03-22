@@ -8,12 +8,12 @@ public class camera{
     camera(float[] pos,float[] rot, float focal){
         if (focal<=0 && pos.length!=3 && rot.length!=3){
             throw new IllegalArgumentException("Invalid parameters");
+            // to make sure focal length isn't negative and that rotation and position arrays only have 3 elements
         }
         else{
             this.position=pos;
             this.rotation=rot;
             this.focal_length=focal;
         }
-
     }
 }
