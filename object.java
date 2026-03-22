@@ -27,6 +27,7 @@ class point {
   }
 
   void rotate(float a, int ax) {
+    // any one of three axis 0,1,2
     float[][] m = new float[3][3];
     float rad = (float) Math.toRadians(a);
     float c = (float) Math.cos(rad);
