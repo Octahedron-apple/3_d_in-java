@@ -10,7 +10,9 @@ public class camera{
             throw new IllegalArgumentException("Invalid parameters");
         }
         else{
-            
+            this.position=pos;
+            this.rotation=rot;
+            this.focal_length=focal;
         }
 
     }
