@@ -3,6 +3,23 @@ import java.util.ArrayList;
 public class object {
   public ArrayList<point> main = new ArrayList<point>();
 
+  public void transform(float[] point) {
+    for (point p : main) {
+      p.transform(point);
+    }
+  }
+
+  public void rotate(float a, int ax) {
+    for (point p : main) {
+      p.rotate(a, ax);
+    }
+  }
+
+  public void render() {
+    for (point p : main) {
+      p.render();
+    }
+  }
 }
 
 class point {
