@@ -28,8 +28,9 @@ class point {
 
   void rotate(float a, int ax) {
     float[][] m = new float[3][3];
-    float c = (float) Math.cos(a);
-    float s = (float) Math.sin(a);
+    float rad = (float) Math.toRadians(a);
+    float c = (float) Math.cos(rad);
+    float s = (float) Math.sin(rad);
 
     if (ax == 0) {
       m = new float[][] {
