@@ -29,6 +29,24 @@ public class object {
     }
   }
 
+  public void unit_cone(float s) {
+    this.main.clear();
+    for (int i = 0; i < 11; i++) {
+      float h = i / 10.0f;
+      float r = 1.0f - h;
+      for (int j = 0; j < 21; j++) {
+        float a = (float) (j * (Math.PI * 2 / 20.0));
+        float x = (float) (r * Math.cos(a));
+        float y = (float) (r * Math.sin(a));
+        float px = x * s;
+        float py = y * s;
+        float pz = (h - 0.5f) * s;
+
+        this.main.add(new point(new float[] { px, py, pz }));
+      }
+    }
+  }
+
   public void transform(float[] point) {
     for (point p : main) {
       p.transform(point);
