@@ -3,6 +3,32 @@ import java.util.ArrayList;
 public class object {
   public ArrayList<point> main = new ArrayList<point>();
 
+  public void unit_Sphere(float s)
+  // making a unit sphere
+  {
+    this.main.clear();
+    for (int x = -2; x <= 2; x++) {
+      for (int y = -2; y <= 2; y++) {
+        for (int z = -2; z <= 2; z++) {
+          float vx = x * 0.5f;
+          float vy = y * 0.5f;
+          float vz = z * 0.5f;
+
+          float m = (float) Math.sqrt(vx * vx + vy * vy + vz * vz);
+          if (m == 0.0f) {
+            continue;
+          }
+
+          float px = (vx / m) * s;
+          float py = (vy / m) * s;
+          float pz = (vz / m) * s;
+
+          this.main.add(new point(new float[] { px, py, pz }));
+        }
+      }
+    }
+  }
+
   public void transform(float[] point) {
     for (point p : main) {
       p.transform(point);
