@@ -8,7 +8,7 @@ import javax.swing.Timer;
 
 public class main {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("3D animation - Sphere");
+        JFrame frame = new JFrame("Sphere");
         frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
