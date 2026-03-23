@@ -4,7 +4,7 @@ public class object {
   public ArrayList<point> main = new ArrayList<point>();
 
   public void unit_Sphere(float s)
-  // making a unit sphere
+  // for making a unit sphere
   {
     this.main.clear();
     for (int x = -2; x <= 2; x++) {
@@ -38,6 +38,21 @@ public class object {
   public void rotate(float a, int ax) {
     for (point p : main) {
       p.rotate(a, ax);
+    }
+  }
+
+  public void strech(int ax, float s) {
+    for (point p : main) {
+      if (ax >= 0 && ax <= 2) p.position[ax] *= s;
+      else throw new IllegalArgumentException("Axis must be 0, 1, or 2");
+    }
+  }
+
+  public void scale(float s) {
+    for (point p : main) {
+      for (int i = 0; i < 3; i++) {
+        p.position[i] *= s;
+      }
     }
   }
 
