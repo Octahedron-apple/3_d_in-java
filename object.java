@@ -47,6 +47,51 @@ public class object {
     }
   }
 
+  public void unit_circle(float s, int ax) {
+    this.main.clear();
+    for (int i = 0; i < 20; i++) {
+      float a = (float) (i * (Math.PI * 2 / 20.0));
+      float px = 0, py = 0, pz = 0;
+      if (ax == 0) {
+        py = (float) Math.cos(a) * s;
+        pz = (float) Math.sin(a) * s;
+      } else if (ax == 1) {
+        px = (float) Math.cos(a) * s;
+        pz = (float) Math.sin(a) * s;
+      } else if (ax == 2) {
+        px = (float) Math.cos(a) * s;
+        py = (float) Math.sin(a) * s;
+      } else {
+        throw new IllegalArgumentException("Axis must be 0, 1, or 2");
+      }
+      this.main.add(new point(new float[] { px, py, pz }));
+    }
+  }
+
+  public void unit_disc(float s, int ax) {
+    this.main.clear();
+    for (int i = 0; i <= 10; i++) {
+      float r = (i / 10.0f) * s;
+      for (int j = 0; j < 20; j++) {
+        float a = (float) (j * (Math.PI * 2 / 20.0));
+        float px = 0, py = 0, pz = 0;
+        if (ax == 0) {
+          py = (float) Math.cos(a) * r;
+          pz = (float) Math.sin(a) * r;
+        } else if (ax == 1) {
+          px = (float) Math.cos(a) * r;
+          pz = (float) Math.sin(a) * r;
+        } else if (ax == 2) {
+          px = (float) Math.cos(a) * r;
+          py = (float) Math.sin(a) * r;
+        } else {
+          throw new IllegalArgumentException("Axis must be 0, 1, or 2");
+        }
+        this.main.add(new point(new float[] { px, py, pz }));
+      }
+    }
+  }
+
   public void transform(float[] point) {
     for (point p : main) {
       p.transform(point);
