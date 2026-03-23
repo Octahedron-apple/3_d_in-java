@@ -181,7 +181,9 @@ class point {
     this.position = np;
   }
 
-  void render() {
+  void render() 
+  // formula from https://youtu.be/qjWkNZ0SXfo
+  {
     if (this.cam != null) {
       float[] d_pos = new float[3];
       d_pos[0] = this.position[0] - this.cam.position[0];
